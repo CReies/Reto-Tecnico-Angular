@@ -28,7 +28,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/normalize.css/normalize.css"
             ]
           },
           "configurations": {
@@ -85,7 +86,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/normalize.css/normalize.css"
             ]
           }
         }
