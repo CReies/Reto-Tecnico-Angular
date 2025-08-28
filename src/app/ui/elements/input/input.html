@@ -1,0 +1,11 @@
+<div class="input-container">
+  @if (label()) {
+  <label [for]="id()">{{ label() }}@if (required()) {<span class="required-asterisk">*</span>}</label>
+  }
+  <input [id]="id()" [type]="type()" [placeholder]="placeholder()" [required]="required()" [disabled]="disabled()"
+    [class.error]="error()" [(ngModel)]="value" />
+
+  @if (error()) {
+  <span class="error-message">{{ error() }}</span>
+  }
+</div>

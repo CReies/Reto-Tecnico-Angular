@@ -1,0 +1,8 @@
+header {
+	text-align: center;
+	padding-block: 2rem;
+	color: var(--text-highlight);
+	font-family: var(--font-highlight);
+	text-transform: uppercase;
+	font-size: 2rem;
+}

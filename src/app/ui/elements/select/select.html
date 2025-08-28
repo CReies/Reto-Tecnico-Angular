@@ -1,0 +1,13 @@
+<div class="select-container">
+	@if (label()) {
+	<label>{{ label() }}</label>
+	}
+	<select [required]="required()" [disabled]="disabled()" [(ngModel)]="value" class="select-input">
+		<option value="" disabled selected>{{ placeholder() }}</option>
+		@for (option of options(); track option.value) {
+		<option [value]="option.value">
+			{{ option.label }}
+		</option>
+		}
+	</select>
+</div>

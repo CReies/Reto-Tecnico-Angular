@@ -1,0 +1,72 @@
+/* Block: modal-component */
+.modal-component {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Element: modal-component__container */
+.modal-component__container {
+  background: white;
+  border-radius: 0.5rem;
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+  overflow: hidden;
+  padding-block: 5rem;
+  padding-inline: 15rem;
+}
+
+/* Element: modal-component__header */
+.modal-component__header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1rem 0 1rem;
+}
+
+/* Element: modal-component__close-button */
+.modal-component__close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c757d;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-component__close-button:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.modal-component__close-button:focus {
+  outline: 0.125rem solid #007bff;
+  outline-offset: 0.125rem;
+}
+
+/* Element: modal-component__close-icon */
+.modal-component__close-icon {
+  display: block;
+  line-height: 1;
+}
+
+/* Element: modal-component__body */
+.modal-component__body {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 6.25rem);
+  width: 100%;
+}

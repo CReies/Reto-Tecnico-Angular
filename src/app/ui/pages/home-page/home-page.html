@@ -1,0 +1,29 @@
+<div class="home-page">
+  <div class="home-page__header">
+    <div class="home-page__search-container">
+      <app-input placeholder="Search..." [type]="'text'" [(value)]="searchTerm" />
+    </div>
+
+    <div class="home-page__actions">
+      <app-button label="Add Product" type="button" class="btn-primary" (clicked)="onShowModal.emit()" />
+    </div>
+  </div>
+
+  @if (productLoading()) {
+  <div class="home-page__loading">Loading...</div>
+  } @else if (productError()) {
+  <div class="home-page__error">{{ productError() }}</div>
+  } @else {
+  <app-table [tableData]="productTableData()" (onTableAction)="onTableAction.emit($event)" />
+  }
+
+  <!-- Add Product Modal -->
+  <app-modal [visible]="modalVisible()" (onClose)="onHideModal.emit()">
+    <h2 slot="header" class="modal__header">Formulario de Registro</h2>
+
+    <div slot="content" class="modal__content">
+      <app-add-product-form #addProductForm [loading]="productLoading()" (onSubmit)="onSubmitProduct.emit($event)"
+        (onValidateId)="onValidateId.emit($event)" />
+    </div>
+  </app-modal>
+</div>

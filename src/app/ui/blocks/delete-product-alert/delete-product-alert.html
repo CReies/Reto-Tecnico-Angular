@@ -1,0 +1,22 @@
+<div class="delete-product-alert">
+  <div class="delete-product-alert__content">
+    <div class="delete-product-alert__icon">
+      <span class="delete-product-alert__warning-icon">⚠️</span>
+    </div>
+
+    <div class="delete-product-alert__message">
+      <h3 class="delete-product-alert__title">Confirmar eliminación</h3>
+      <p class="delete-product-alert__text">
+        ¿Estás seguro de eliminar el producto <strong>{{ productName() }}</strong>?
+      </p>
+    </div>
+  </div>
+
+  <div class="delete-product-alert__actions">
+    <app-button [label]="'Cancelar'" [type]="'button'" (clicked)="handleCancel()" class="btn-secondary">
+    </app-button>
+
+    <app-button [label]="'Confirmar'" [type]="'button'" (clicked)="handleConfirm()" class="btn-danger">
+    </app-button>
+  </div>
+</div>

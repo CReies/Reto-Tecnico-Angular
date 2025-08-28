@@ -1,0 +1,47 @@
+<div class="table-component">
+  <div class="table-component__container">
+    <table class="table-component__table">
+      <thead class="table-component__header">
+        <tr class="table-component__header-row">
+          @for (column of columns(); track column.key) {
+          <th class="table-component__header-cell">{{ column.label }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody class="table-component__body">
+        @for (row of rows(); track $index) {
+        <tr class="table-component__body-row">
+          @for (column of columns(); track column.key) {
+          <td class="table-component__body-cell">
+            @switch (column.type) {
+            @case ('image') {
+            <img class="table-component__image" [src]="row[column.key]" [alt]="column.label">
+            }
+            @case ('text') {
+            <span class="table-component__text">{{ row[column.key] }}</span>
+            }
+            @case ('actions') {
+            <div class="table-component__actions">
+              <app-table-actions [productId]="row[column.key]" (onActionSelected)="handleTableAction($event)">
+              </app-table-actions>
+            </div>
+            }
+            }
+          </td>
+          }
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-component__footer">
+    <div class="table-component__results-count">
+      {{ totalResults() }} resultados
+    </div>
+    <div class="table-component__page-size-selector">
+      <app-select [options]="pageSizeOptions()" [value]="pageSize().toString()"
+        (valueChange)="updatePageSize($event)" />
+    </div>
+  </div>
+</div>

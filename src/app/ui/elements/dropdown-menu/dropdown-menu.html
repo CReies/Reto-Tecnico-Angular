@@ -1,0 +1,19 @@
+<div class="dropdown-menu-component">
+  <button type="button" class="dropdown-menu-component__trigger" [disabled]="disabled()"
+    (click)="toggleDropdown($event)">
+    <span class="dropdown-menu-component__dots-icon">⋮</span>
+  </button>
+
+  @if (isOpen()) {
+  <div class="dropdown-menu-component__menu">
+    @for (option of options(); track option.value) {
+    <button type="button" class="dropdown-menu-component__option" (click)="selectOption(option, $event)">
+      @if (option.icon) {
+      <span class="dropdown-menu-component__option-icon">{{ option.icon }}</span>
+      }
+      <span class="dropdown-menu-component__option-label">{{ option.label }}</span>
+    </button>
+    }
+  </div>
+  }
+</div>

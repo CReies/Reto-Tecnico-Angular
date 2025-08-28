@@ -1,0 +1,58 @@
+<div class="add-product-form" [class.add-product-form--valid]="isFormValid() && !hasFormErrors()"
+  [class.add-product-form--invalid]="hasFormErrors()" [class.add-product-form--loading]="loading()">
+  <div class="add-product-form__grid">
+    <!-- ID Field -->
+    <div class="add-product-form__field">
+      <app-input id="product-id" label="Product ID" placeholder="Enter unique product ID" type="text" [required]="true"
+        [disabled]="loading() || isEditMode()" [error]="errors().id" [(value)]="formData().id"
+        (valueChange)="updateFormField('id', $event)" />
+
+      @if (idValidating() && !isEditMode()) {
+      <span class="add-product-form__validating-message">Validating ID...</span>
+      }
+    </div>
+
+    <!-- Name Field -->
+    <div class="add-product-form__field">
+      <app-input id="product-name" label="Product Name" placeholder="Enter product name" type="text" [required]="true"
+        [disabled]="loading()" [error]="errors().name" [(value)]="formData().name"
+        (valueChange)="updateFormField('name', $event)" />
+    </div>
+
+    <!-- Description Field -->
+    <div class="add-product-form__field add-product-form__field--full-width">
+      <app-input id="product-description" label="Description" placeholder="Enter product description" type="text"
+        [required]="true" [disabled]="loading()" [error]="errors().description" [(value)]="formData().description"
+        (valueChange)="updateFormField('description', $event)" />
+    </div>
+
+    <!-- Logo Field -->
+    <div class="add-product-form__field">
+      <app-input id="product-logo" label="Logo URL" placeholder="Enter logo URL" type="text" [required]="true"
+        [disabled]="loading()" [error]="errors().logo" [(value)]="formData().logo"
+        (valueChange)="updateFormField('logo', $event)" />
+    </div>
+
+    <!-- Release Date Field -->
+    <div class="add-product-form__field">
+      <app-input id="product-release-date" label="Release Date" type="date" [required]="true" [disabled]="loading()"
+        [error]="errors().date_released" [(value)]="formData().date_released"
+        (valueChange)="updateFormField('date_released', $event)" />
+    </div>
+
+    <!-- Revision Date Field (Disabled) -->
+    <div class="add-product-form__field">
+      <app-input id="product-revision-date" label="Revision Date" type="date" [required]="true" [disabled]="true"
+        [error]="errors().date_revision" [(value)]="formData().date_revision" />
+    </div>
+  </div>
+
+  <!-- Form Actions -->
+  <div class="add-product-form__actions">
+    <app-button label="Reset" type="button" class="btn-secondary" [disabled]="loading()" (clicked)="resetForm()" />
+
+    <app-button
+      [label]="loading() ? (isEditMode() ? 'Updating...' : 'Adding...') : (isEditMode() ? 'Update Product' : 'Add Product')"
+      type="button" class="btn-primary" [disabled]="!isFormValid() || loading()" (clicked)="submitForm()" />
+  </div>
+</div>

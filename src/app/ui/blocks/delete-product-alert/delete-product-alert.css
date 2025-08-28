@@ -1,0 +1,115 @@
+/* Block: delete-product-alert */
+.delete-product-alert {
+  padding: 2rem;
+  max-width: 30rem;
+  width: 100%;
+}
+
+/* Element: delete-product-alert__content */
+.delete-product-alert__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+/* Element: delete-product-alert__icon */
+.delete-product-alert__icon {
+  margin-bottom: 0.5rem;
+}
+
+/* Element: delete-product-alert__warning-icon */
+.delete-product-alert__warning-icon {
+  font-size: 3rem;
+  color: #f59e0b;
+}
+
+/* Element: delete-product-alert__message */
+.delete-product-alert__message {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Element: delete-product-alert__title */
+.delete-product-alert__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Element: delete-product-alert__text */
+.delete-product-alert__text {
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.delete-product-alert__text strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Element: delete-product-alert__warning */
+.delete-product-alert__warning {
+  font-size: 0.875rem;
+  color: #dc2626;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Element: delete-product-alert__actions */
+.delete-product-alert__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.delete-product-alert__actions app-button {
+  min-width: 7rem;
+}
+
+/* Button modifiers within delete-product-alert */
+.delete-product-alert__actions .btn-secondary {
+  --btn-bg: #f3f4f6;
+  --btn-color: #374151;
+  --btn-border: #d1d5db;
+}
+
+.delete-product-alert__actions .btn-secondary:hover {
+  --btn-bg: #e5e7eb;
+  --btn-border: #9ca3af;
+}
+
+.delete-product-alert__actions .btn-danger {
+  --btn-bg: #dc2626;
+  --btn-color: #ffffff;
+  --btn-border: #dc2626;
+}
+
+.delete-product-alert__actions .btn-danger:hover {
+  --btn-bg: #b91c1c;
+  --btn-border: #b91c1c;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .delete-product-alert {
+    padding: 1.5rem;
+  }
+
+  .delete-product-alert__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .delete-product-alert__actions app-button {
+    width: 100%;
+    max-width: 12rem;
+  }
+}

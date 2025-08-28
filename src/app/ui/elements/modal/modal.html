@@ -1,0 +1,22 @@
+<!-- Modal Component -->
+@if (visible()) {
+<div class="modal-component" (click)="onBackdropClick($event)" (keydown)="onEscapeKey($event)" tabindex="-1">
+
+  <!-- Modal Container -->
+  <div class="modal-component__container">
+
+    <!-- Modal Header with Close Button -->
+    <div class="modal-component__header">
+      <button type="button" class="modal-component__close-button" (click)="close()" aria-label="Close modal">
+        <span class="modal-component__close-icon">&#x2715;</span>
+      </button>
+    </div>
+
+    <!-- Modal Body (Content Projection) -->
+    <div class="modal-component__body">
+      <ng-content></ng-content>
+    </div>
+
+  </div>
+</div>
+}
