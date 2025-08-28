@@ -1,0 +1,18 @@
+<app-home-page #homePage [productTableData]="facade.tableData()" [productLoading]="facade.loading()"
+  [productError]="facade.error()" [modalVisible]="facade.modalVisible()" [(searchTerm)]="facade.searchTerm"
+  (onShowModal)="onShowModal()" (onHideModal)="onHideModal()" (onValidateId)="onValidateId($event)"
+  (onSubmitProduct)="onSubmitProduct($event)" (onTableAction)="onTableAction($event)" />
+
+<!-- Edit Product Modal -->
+<app-modal [visible]="facade.editModalVisible()" (onClose)="onHideEditModal()">
+  <app-add-product-form [loading]="facade.editModalLoading()" [isEditMode]="true"
+    [initialProduct]="facade.editModalProduct()" (onSubmit)="onSubmitEditProduct($event)">
+  </app-add-product-form>
+</app-modal>
+
+<!-- Delete Product Modal -->
+<app-modal [visible]="facade.deleteModalVisible()" (onClose)="onCancelDelete()">
+  <app-delete-product-alert [productName]="facade.deleteModalProductName() || ''" (onCancel)="onCancelDelete()"
+    (onConfirm)="onConfirmDelete()">
+  </app-delete-product-alert>
+</app-modal>
